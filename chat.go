@@ -83,7 +83,7 @@ func listenForMessages(port string, messageChannel chan Message) {
     if (err == nil) {
       fmt.Println("Received connection")
       go handleIncomingRequest(conn, messageChannel)
-      fmt.Println("Connecting back to %s", conn.RemoteAddr().String())
+      fmt.Printf("Connecting back to %s\n", conn.RemoteAddr().String())
       mirrors[conn.RemoteAddr().String()] = conn
     } else {
       fmt.Println("Failed receiving incoming request")
